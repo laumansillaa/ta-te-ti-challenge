@@ -7,17 +7,21 @@ module.exports = async function (req, res, next) {
         
         const {name, username} = req.body;
 
-        const user = await User.create({
-            name,
-            username
-        })
+        if (name, username) {
 
-        res.status(200).send('User created');
+            const user = await User.create({
+                name,
+                username
+            })
+    
+            res.status(200).send('User created');
 
+        } else {
+            res.status(404).send('Bad request');
+        }
 
     } catch (error) {
         next(error)
     }
-
 
 }

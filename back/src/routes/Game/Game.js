@@ -7,7 +7,7 @@ module.exports = async function (req, res, next) {
 
         const {players, winner, loser, equality, user} = req.body;
         if (!winner && !loser && !equality) {
-            res.status(400).send('Bad Request');
+            res.status(404).send('Bad Request');
         }
 
         if (user.length && players.length && (winner || loser || equality)) {
@@ -28,7 +28,7 @@ module.exports = async function (req, res, next) {
 
             res.status(200).send(game);
         } else {
-            res.status(400).send('Bad request');
+            res.status(404).send('Bad request');
         }
         
 
