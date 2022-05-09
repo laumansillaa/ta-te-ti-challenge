@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 1100px;
+  /* background-color: #001F66; */
+  backdrop-filter: blur(5px);
+  background-image: url('./assets/image.jpg');
+  
+}
+
+/* *{
+  margin: 0;
+  padding: 0;
+} */

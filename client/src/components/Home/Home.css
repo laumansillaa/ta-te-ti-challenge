@@ -1,0 +1,88 @@
+h2 {
+    text-align: center;
+    
+}
+
+.adduser {
+    display: flex;
+    margin-top: 0;
+
+    
+}
+
+.homeNav {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    background-color: #F1F1F9;
+}
+
+.buttonLink {
+    margin-top: 15px;
+    margin-right: 15px;
+    padding: 10px 20px;
+    border: unset;
+    border-radius: 15px;
+    color: #F2F4F3;
+    z-index: 1;
+    background: #0A0908;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+
+
+}
+
+.buttonLink::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #F2F4F3;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+}
+
+.buttonLink:hover {
+    color: #0A0908;
+}
+
+button:hover::before {
+    width: 100%;
+}
+
+
+.containTablero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 800px;
+}
+
+.titleHome {
+    padding: 0px;   
+    margin-top: 30px;
+    margin-left: 15px;
+    font-size: 17px;
+}
+
+
+/* .homeSubTitle {
+    background-color: aliceblue;
+} */
+
+.subtitleHome {
+    color: white
+}
