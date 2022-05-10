@@ -11,10 +11,16 @@ export default function Stadistics () {
 
     const users = useSelector(state => state.users);
     const games = useSelector(state => state.games);
+  
 
     const [userFilter, setUserFilter] = useState(
         [window.localStorage.getItem("filter")]
     );
+
+    // La funcion setLocalStorage es parte de la idea inicial para conservar los datos al actualizar la pagina
+    // Decidi dejar el codigo, a pesar de que no esta consevando los valores al actualizar, para obtener una devolucion
+    // de parte de ustedes. Y me comenten si la idea era acertada o no, que fue lo que estuvo mal ejecutado, o que fue lo que 
+    // debi hacer, o me falto, para concretar la idea. 
 
     function setLocalStorage (e) {
         try {
