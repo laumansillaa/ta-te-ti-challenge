@@ -35,14 +35,14 @@ con sus respectivos valores.
 
 ### All user: 
 
-- Metodo: get.
-- Route: /user/allUser.
+- Metodo: get
+- Route: /user/allUser
 
 
 ### Create game:
 
--Metodo: post.
--Route: /game/createGame
+- Metodo: post
+- Route: /game/createGame
 
 ```
     {
@@ -59,8 +59,8 @@ con sus respectivos valores.
 
 ### All games
 
--Metodo: get.
--Route: /game/allGame
+- Metodo: get
+- Route: /game/allGame
 
 
 # Client
