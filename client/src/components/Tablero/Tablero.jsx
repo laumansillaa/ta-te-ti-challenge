@@ -70,7 +70,6 @@ export default function Tablero () {
         [2, 4, 6]    
     ]
 
-    //Si el valor A es distinto de nulo y es igual a B, y A es igual a C, entonces ganó.
     function checkWinner (square) {
         for (var i = 0; i < combinations.length; i++) {
             const [x, y, e] = combinations[i];
