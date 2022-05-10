@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers, allGames, filterByUser } from "../../actions";
 import { Link } from "react-router-dom";
-//import { Link } from "react-router-dom";
 import './stadistics.css';
-
 
 
 export default function Stadistics () {
@@ -15,26 +13,23 @@ export default function Stadistics () {
     const games = useSelector(state => state.games);
 
     const [userFilter, setUserFilter] = useState(
-        window.localStorage.getItem("filter")
+        [window.localStorage.getItem("filter")]
     );
-    
+
     function setLocalStorage (e) {
         try {
             dispatch(filterByUser(e.target.value))
             setUserFilter(e.target.value)
-            window.localStorage.setItem("filter", e.target.value);
+            window.localStorage.setItem("filter",  userFilter);
         } catch (error) {
             console.log(error)
         }
     }
 
     useEffect(() => {
-        dispatch(allGames());
         dispatch(getUsers());
-        //dispatch(filterByUser(userFilter));
-
-
-    }, [filterByUser])
+        dispatch(allGames());
+    }, []);
 
 
     // function handleFilterByUser (e) {
@@ -59,11 +54,10 @@ export default function Stadistics () {
                 </div>
                 <div className='homeNav'>
                     <h4 className= 'titleHome'>Filter by User </h4>
-                    <select onChange= {setLocalStorage} value={window.localStorage.getItem("filter")}>
+                    <select onChange= {setLocalStorage} value={window.localStorage.getItem("filter")} className='selectStadistics'>
                         <option>Filter user</option>
-                        {
+                        { 
                             users.map(e => {
-                                console.log('userFilter MAP', userFilter)
                                 return (
                                     <option key={e.id} value={e.username}>{e.username}</option>
                                 )
@@ -82,7 +76,6 @@ export default function Stadistics () {
                                 
                                 <div key={games.id} className= 'card'>
                                     <div className= 'card_cover'>
-                                        {/* <h4>○ {games.players[0]? games.players[0] : "ups"}  vs {games.players[1]? games.players[1] : 'ups'}</h4> */}
                                         <h4>○ {games.players[0]} vs {games.players[1]}</h4>
                                     </div>
                                     <div className= 'card_content'>

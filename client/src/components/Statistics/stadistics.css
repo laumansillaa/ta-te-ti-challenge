@@ -14,7 +14,6 @@
     gap: 1em;
 }
 
-
 .card {
     
     align-items: center;
@@ -29,9 +28,16 @@
 .card_cover {
     height: 20px;
     width: 100%;
-    /* border-bottom: solid 1px black; */
 }
 
 .card_content {
     flex: 1;
+}
+
+.selectStadistics {
+    padding: 0;
+    margin: 0;
+    height: 25px;
+    margin-top: 25px;
+    margin-right: 20px;
 }

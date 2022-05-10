@@ -3,6 +3,7 @@ const initialState = {
     user: [],
     game: [],
     games: [],
+    filter: [],
     error: null
 }
 

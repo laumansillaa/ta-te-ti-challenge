@@ -25,7 +25,7 @@ export default function Tablero () {
     const [input, setInput] = useState({
         name: []
     });
-    //console.log('INPUT NAME', input.name)
+
     useEffect(() => {
         dispatch(getUsers());
     }, [dispatch])
@@ -45,7 +45,7 @@ export default function Tablero () {
         }
     }
 
-    const handleSelect = (e) => {
+    function handleSelect (e) {
         if (input.name.length === 2) {
             alert('Max Players Chosen')
         } else {
@@ -71,7 +71,7 @@ export default function Tablero () {
     ]
 
     //Si el valor A es distinto de nulo y es igual a B, y A es igual a C, entonces ganó.
-    const checkWinner = (square) => {
+    function checkWinner (square) {
         for (var i = 0; i < combinations.length; i++) {
             const [x, y, e] = combinations[i];
             if(square[x] && square[x] === square[y] && square[x] === square[e]){
@@ -96,7 +96,6 @@ export default function Tablero () {
         user: input.name
     }
     
-    console.log('DATA PLAYERS', data)
 
     if (winner) {
         if(winner.includes(playerA.name)){
@@ -118,7 +117,7 @@ export default function Tablero () {
         startGame()
     }
 
-    const handleClick = (num) => {
+    function handleClick (num) {
         if(cell[num] !== '' ){
             alert('Ya esta elegido, seleccione otro')
             return
@@ -138,14 +137,13 @@ export default function Tablero () {
     }
 
     function handleDelete (e) {
-        console.log('EVENT', e)
         setInput({
             ...input, 
             name: input.name.filter(name => name !== e)
         })
     }
 
-    const Cell = ({num}) => {
+    function Cell ({num}) {
         return <td onClick={() => handleClick(num)}>{cell[num]}</td>
     }
 
@@ -198,16 +196,16 @@ export default function Tablero () {
                                 winner? 
                                 <>
                                     <div className='containWinner'>
-                                        <h4>{winner}</h4>
-                                        <button className='buttonResetGame' onClick={resetGame}>Play again</button>
+                                        <h4 className='textData'>○ {winner}</h4>
+                                        <button className='startButton' onClick={resetGame}>Play again</button>
                                     </div>
                                 </>
                                 :
                                 <>
                                     <div className='containData'>
-                                        <h5>Player A: {playerA.name} </h5>
-                                        <h5>Player B: {playerB.name} </h5>
-                                        <h4>Is turn of {playerTurn}: {turn}</h4>
+                                        <h4 className='textData'>○ Player A: {playerA.name} </h4>
+                                        <h4 className='textData' >○ Player B: {playerB.name} </h4>
+                                        <h4 className='textData' >○ Is turn of {playerTurn}: {turn}</h4>
                                     </div>
                                 </>
                             }
@@ -216,7 +214,7 @@ export default function Tablero () {
                     </> :
                     <>
                         <h3 className= 'preGame'>One play?</h3> 
-                        <button onClick={startGame}>START GAME</button>
+                        <button className='startButton'  onClick={startGame}>START GAME</button>
                     </>
                 }
             </div>
