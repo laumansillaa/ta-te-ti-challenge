@@ -75,14 +75,14 @@ export default function Tablero () {
             const [x, y, e] = combinations[i];
             if(square[x] && square[x] === square[y] && square[x] === square[e]){
                 if (square[x] === 'X') {
-                    setWinner(`El ganador fue: ${square[x]}, congrats ${playerA.name}`);
+                    setWinner(`The winner is: ${square[x]}, congrats ${playerA.name}!`);
                 } else {
-                    setWinner(`El ganador fue: ${square[x]}, congrats ${playerB.name}`);
+                    setWinner(`The winner is: ${square[x]}, congrats ${playerB.name}!`);
                 }
             }
         }
         if(!square.includes('')){
-            setWinner(`El resultado fue un empate!`);
+            setWinner(`The result was an equality!`);
             data.equality = "Equality"
         }
     }
@@ -95,7 +95,6 @@ export default function Tablero () {
         user: input.name
     }
     
-
     if (winner) {
         if(winner.includes(playerA.name)){
             data.winner = playerA.name;
@@ -111,14 +110,13 @@ export default function Tablero () {
     function resetGame () {
         setWinner('')
         setCell(Array(9).fill(''))
-        console.log('SOY DATA', data)
         dispatch(addGame(data))
         startGame()
     }
 
     function handleClick (num) {
         if(cell[num] !== '' ){
-            alert('Ya esta elegido, seleccione otro')
+            alert('Already selected, please select another')
             return
         }
         let square = [...cell]
